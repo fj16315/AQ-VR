@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ec8a606b4fe1074994fac3e4e20bcb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intensity: 100
+  intensity: 95
 --- !u!4 &218712488
 Transform:
   m_ObjectHideFlags: 0
@@ -249,7 +249,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 218712486}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.28, y: 0.743, z: 3.2}
+  m_LocalPosition: {x: 0.303, y: 0.743, z: 0.419}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -352,10 +352,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1168a73f96647345b039668fb2c0924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensor: {fileID: 1913807194}
-  intensity: 50
-  radius: 5
-  min: 20
+  radius: 0.5
+  min: 50
   filepath: TestData.csv
 --- !u!1 &977216321
 GameObject:
@@ -5318,7 +5316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1913807194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.384, y: 0.743, z: 0.751}
+  m_LocalPosition: {x: -0.266, y: 0.743, z: 0.419}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5336,4 +5334,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ec8a606b4fe1074994fac3e4e20bcb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intensity: 50
+  intensity: 100

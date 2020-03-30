@@ -44,6 +44,13 @@ Shader "Custom/HeatmapShader"
             float _SensorMin;
             float _SensorMax;
 
+            float convertIntensity(float intensity)
+            {
+                float oldRange = _SensorMax - _SensorMin;
+                float newIntensity = (intensity - _SensorMin) / oldRange;
+                return newIntensity;
+			}
+
             float getIntensity(float3 worldPos)
             {
                 float h = 0;
@@ -52,28 +59,23 @@ Shader "Custom/HeatmapShader"
                 {
                     float dist = distance(worldPos, _SensorsPos[i].xyz);
                     float hi = 1 - saturate(dist / _SensorRadius);
+                    float newIntensity = saturate(convertIntensity(_SensorsIntensities[i]));
 
-                    h += hi * _SensorsIntensities[i];
+                    h += hi * newIntensity;
 				}
+                h = saturate(h);
 
                 return h;     
-			}
-
-            float convertIntensity(float intensity)
-            {
-                float oldRange = _SensorMax - _SensorMin;
-                float newIntensity = (intensity - _SensorMin) / oldRange;
-                return newIntensity;
 			}
 
             fixed4 frag(v2f i) : SV_TARGET
             {
                 float intensity = getIntensity(i.worldPos);
 
-                float newIntensity = convertIntensity(intensity);
-
-                fixed4 colour = fixed4(1.0, 1.0, 1.0, 1.0);
-                colour *= (1 - newIntensity);
+                fixed4 colour = fixed4(1.0, 0.0, 0.0, 1.0);
+                colour.x = intensity;
+                colour.z = (1 - intensity);
+                //colour = (1 - intensity);
                 colour.a = 1.0;
                 return colour;
 			}

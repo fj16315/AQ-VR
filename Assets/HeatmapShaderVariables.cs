@@ -7,9 +7,8 @@ using System.IO;
 [ExecuteInEditMode]
 public class HeatmapShaderVariables : MonoBehaviour
 {
-  public GameObject sensor;
-  public float intensity;
   public float radius;
+  //public float max;
   public float min;
   public string filepath;
 
@@ -32,13 +31,12 @@ public class HeatmapShaderVariables : MonoBehaviour
     string[] lineData = (lines[0].Trim()).Split(","[0]);
     intensity = float.Parse(lineData[0]);*/
 
-    //intensities.Add(intensity);
-
     Shader.SetGlobalVectorArray("_SensorsPos", sensors);
     Shader.SetGlobalFloatArray("_SensorsIntensities", intensities);
     Shader.SetGlobalFloat("_SensorRadius", radius);
     Shader.SetGlobalFloat("_SensorsNo", sensorNo);
     Shader.SetGlobalFloat("_SensorMin", min);
     Shader.SetGlobalFloat("_SensorMax", intensities.Max());
+    //Shader.SetGlobalFloat("_SensorMax", max);
   }
 }
