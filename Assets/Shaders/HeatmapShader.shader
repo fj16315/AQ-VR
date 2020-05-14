@@ -72,12 +72,12 @@ Shader "Custom/HeatmapShader"
             {
                 float intensity = getIntensity(i.worldPos);
 
-                fixed4 colour = fixed4(1.0, 0.0, 0.0, 1.0);
-                //colour.x = intensity;
-                //colour.z = (1 - intensity);
-                colour.z = _SensorsIntensities[0];
+                fixed4 colour = fixed4(0.0, 0.0, 0.0, 1.0);
+                colour.x = intensity;
+                colour.z = (1 - intensity);
+                //colour.z = intensity;
                 //colour = (1 - intensity);
-                colour.a = 1.0;
+                colour.a = 0.95;
                 return colour;
 			}
 
